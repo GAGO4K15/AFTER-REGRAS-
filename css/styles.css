@@ -1,0 +1,390 @@
+:root {
+    --primary-color: #1d1f27;
+    --secondary-color: #e94560;
+    --accent-color: #ffcc29;
+    --text-color: #f0f0f0;
+    --background-color: #121212;
+    --secondary2-color:rgb(35, 252, 7)0;
+    --gradient-background: linear-gradient(135deg, #1d1f27 0%, #2e2e2e 100%);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--gradient-background);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.logo {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 600;
+}
+
+section#doacoes {
+    background: var(--primary-color);
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+}
+
+section#doacoes::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.btn-doar {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-doar:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+#painel-doacao {
+    margin-top: 20px;
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#painel-doacao.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#qr-code {
+    max-width: 300px;
+    margin: 20px 0;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+}
+
+footer {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    width: 100%;
+    border-top: 2px solid var(--accent-color);
+}
+.destino-doacoes {
+    background: var(--primary-color);
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+}
+
+.destino-doacoes::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.destino-doacoes h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.destino-doacoes p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.destino-doacoes ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.destino-doacoes li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+/* Animação de fade-in ao carregar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Animação de hover para botões */
+.btn-doar {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-doar:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Animação de exibição do painel de doação */
+#painel-doacao.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s ease-out;
+}
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    section#doacoes {
+        width: 95%;
+    }
+
+    .btn-doar {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    #qr-code {
+        max-width: 250px;
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+}
+
+/* Ajustes para telas ainda menores */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    section#doacoes {
+        padding: 15px;
+    }
+
+    .btn-doar {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+
+    #qr-code {
+        max-width: 200px;
+    }
+}
+/* Estilos Gerais para a Seção de Eventos */
+.eventos {
+    background: var(--background-color);
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    color: var(--text-color);
+}
+
+/* Título da Seção de Eventos */
+.eventos h2 {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.eventos h2 i {
+    margin-right: 10px;
+}
+
+/* Estilo para cada Evento */
+.eventos .evento {
+    background: var(--primary-color);
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Cabeçalho do Evento */
+.eventos .evento-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Imagem do Logo do Evento */
+.eventos .logo-evento {
+    max-width: 60px;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+/* Título do Evento */
+.eventos h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+.eventos h3 i {
+    margin-right: 10px;
+}
+
+/* Parágrafos e Listas no Evento */
+.eventos p, .eventos ul {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.eventos ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.eventos ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.eventos ul li i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+/* Linha de Destaque para o Evento */
+.eventos .evento:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+/* Estilo para Eventos Fechados */
+.evento-fechado {
+    background: var(--background-color);
+    border: 2px solid var(--secondary-color);
+    position: relative;
+    opacity: 0.8;
+}
+
+/* Etiqueta de Fechado */
+.evento-fechado:after {
+    content: 'INSCRIÇÕES FECHADAS';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 10;
+}
+
+/* Estilo para Eventos Abertos */
+.evento-aberto {
+    background: var(--primary-color);
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Etiqueta de Aberto */
+.evento-aberto:before {
+    content: 'INSCRIÇÕES ABERTAS';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 5px;
+}
